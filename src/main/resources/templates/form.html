@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+    <body>
+    <h1>Skoregistrering</h1>
+    <form action="#" th:action="@{/submit}" th:object="${shoe}" th:method="put">
+
+        <select th:field="*{type}">
+            <option th:each="type : ${types}" th:value="${type}" th:text="${type}">type</option>
+        </select>
+
+        <input type="text" th:field="*{size}" />
+
+        <span th:if="${#fields.hasErrors('size')}" th:errors="*{size}"></span>
+
+        <p><input type="submit"/></p>
+    </form>
+    </body>
+</html>
